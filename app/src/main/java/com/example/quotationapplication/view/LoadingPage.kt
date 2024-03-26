@@ -1,4 +1,4 @@
-package com.example.quotationapplication
+package com.example.quotationapplication.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image

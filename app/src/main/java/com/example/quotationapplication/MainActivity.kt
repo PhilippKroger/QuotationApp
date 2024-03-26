@@ -4,8 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import com.example.quotationapplication.signup.SignUpPage1
+import com.example.quotationapplication.core.presentation.signup.SignUpPage1
 import com.example.quotationapplication.ui.theme.QuotationApplicationTheme
+import com.example.quotationapplication.view.LauncherPage
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class)
@@ -13,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             QuotationApplicationTheme {
-                SignUpPage1()
+                LauncherPage()
             }
         }
     }
