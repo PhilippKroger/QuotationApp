@@ -4,7 +4,7 @@ import com.example.quotationapplication.model.Author
 import com.example.quotationapplication.model.Category
 
 data class Quote(
-    val id: Int,
+    val id: BaseModel,
     val author: Author,
     val text: String,
     val likes: Int,

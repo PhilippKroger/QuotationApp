@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import com.example.quotationapplication.core.presentation.signup.SignUpPage1
+import com.example.quotationapplication.core.presentation.signup.SignUpPage2
+import com.example.quotationapplication.core.presentation.signup.SignUpPage3
 import com.example.quotationapplication.ui.theme.QuotationApplicationTheme
 import com.example.quotationapplication.view.LauncherPage
 import com.example.quotationapplication.view.LoadingPage
@@ -16,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             QuotationApplicationTheme {
-                SignUpPage1()
+                SignUpPage3()
             }
         }
     }
