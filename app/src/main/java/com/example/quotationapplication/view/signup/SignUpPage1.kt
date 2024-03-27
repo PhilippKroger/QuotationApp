@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
@@ -59,7 +60,7 @@ fun SignUpPage1() {
 
             Text(modifier = Modifier
                 .padding(start=10.dp),
-                text = "Цитатник",
+                text = stringResource(R.string.quotationapp),
                 color = Color(0xFF283C63),
                 fontSize = 20.sp,
             )
@@ -67,7 +68,7 @@ fun SignUpPage1() {
 
         Text(modifier = Modifier
             .padding(70.dp),
-            text = "Данные для входа",
+            text = stringResource(R.string.enter_data),
             color = Color(0xFF283C63),
         )
 
@@ -75,7 +76,7 @@ fun SignUpPage1() {
             .padding(top = 100.dp)
             .align(Alignment.TopCenter),
             fontSize = 16.sp,
-            text = "Укажите актуальную почту и придумайте пароль для входа",
+            text = stringResource(R.string.enter_data_2),
             textAlign = TextAlign.Center,
             color = Color(0xFFA7AAAE)
         )
@@ -98,7 +99,7 @@ fun SignUpPage1() {
                 .padding(end=25.dp)
                 .padding(top=10.dp)
                 .align(Alignment.CenterHorizontally),
-            text = "Нажимая «Далее», вы принимаете пользовательское соглашение и политику конфиденциальности",
+            text = stringResource(R.string.pt_next),
             fontSize = 13.sp,
             color = Color(0xFFA7AAAE),
             textAlign = TextAlign.Center
@@ -124,7 +125,7 @@ fun SignUpPage1() {
                 modifier = Modifier
                     .fillMaxSize(0.1f)
             )
-            Text( "Назад" , color = Color(0xFFA7AAAE))
+            Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
         }
 
         TextButton( modifier = Modifier
@@ -132,7 +133,7 @@ fun SignUpPage1() {
             onClick = { /*TODO*/ },
         ) {
 
-            Text( "Далее" , color = Color(0xFF283C63))
+            Text( stringResource(R.string.next) , color = Color(0xFF283C63))
             Image(
                 painter = painterResource(id = R.drawable.img_4),
                 contentDescription = "",
@@ -157,7 +158,7 @@ fun EmailTextField1(
         textStyle = MaterialTheme.typography.bodyMedium,
         value = emailValue,
         onValueChange = onEmailValueChange,
-        label = { Text("Почта") },
+        label = { Text(stringResource(R.string.email)) },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email)
     )
 }
@@ -172,7 +173,7 @@ fun PasswordTextField1(
             .padding(start=50.dp),
         value = passwordValue,
         onValueChange = onPasswordValueChange,
-        label = { Text("Пароль") },
+        label = { Text(stringResource(R.string.password)) },
         textStyle = MaterialTheme.typography.bodyMedium,
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password)
@@ -191,7 +192,7 @@ fun PasswordTextField2(
             .padding(top = 0.dp),
         value = passwordValue,
         onValueChange = onPasswordValueChange,
-        label = { Text("Повторите пароль") },
+        label = { Text(stringResource(R.string.rep_password)) },
         textStyle = MaterialTheme.typography.bodyMedium,
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password)

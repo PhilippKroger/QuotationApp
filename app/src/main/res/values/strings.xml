@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">QuotationApplication</string>
+    <string name="quotationapp">Цитатник</string>
+    <string name="enter">Вход</string>
+    <string name="inp1">Введите почту и пароль для входа</string>
+    <string name="back">Назад</string>
+    <string name="next">Далее</string>
+    <string name="email">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="reg">Регистрация</string>
+    <string name="enter_data">Данные для входа</string>
+    <string name="enter_data_2">Укажите актуальную почту и придумайте пароль для входа</string>
+    <string name="pt_next">Нажимая «Далее», вы принимаете пользовательское соглашение и политику конфиденциальности</string>
+    <string name="rep_password">Повторите пароль</string>
+    <string name="br_that_int">Выберете то, что вам действительно интересно</string>
+    <string name="intersts">Интересы</string>
 </resources>

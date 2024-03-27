@@ -58,7 +58,7 @@ fun SignUpPage3() {
 
             Text(modifier = Modifier
                 .padding(start=10.dp),
-                text = "Цитатник",
+                text = stringResource(R.string.quotationapp),
                 color = Color(0xFF283C63),
                 fontSize = 20.sp,
             )
@@ -66,7 +66,7 @@ fun SignUpPage3() {
 
         Text(modifier = Modifier
             .padding(70.dp),
-            text = "Интересы",
+            text = stringResource(R.string.intersts),
             color = Color(0xFF283C63),
         )
 
@@ -74,7 +74,7 @@ fun SignUpPage3() {
             .padding(top = 100.dp)
             .align(Alignment.TopCenter),
             fontSize = 16.sp,
-            text = "Выберете то, что вам действительно интересно",
+            text = stringResource(R.string.br_that_int),
             textAlign = TextAlign.Center,
             color = Color(0xFFA7AAAE)
         )
@@ -102,7 +102,7 @@ fun SignUpPage3() {
                 modifier = Modifier
                     .fillMaxSize(0.1f)
             )
-            Text( "Назад" , color = Color(0xFFA7AAAE))
+            Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
         }
 
         TextButton( modifier = Modifier
@@ -110,7 +110,7 @@ fun SignUpPage3() {
             onClick = { /*TODO*/ },
         ) {
 
-            Text( "Далее" , color = Color(0xFF283C63))
+            Text( stringResource(R.string.next) , color = Color(0xFF283C63))
             Image(
                 painter = painterResource(id = R.drawable.img_4),
                 contentDescription = "",

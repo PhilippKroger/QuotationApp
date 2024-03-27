@@ -1,5 +1,6 @@
 package com.example.quotationapplication.view
 
+import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,6 +30,17 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import com.example.quotationapplication.R
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+
 
 @ExperimentalFoundationApi
 @Composable
@@ -56,7 +68,7 @@ fun LoginPage() {
 
             Text(modifier = Modifier
                 .padding(start=10.dp),
-                text = "Цитатник",
+                text = stringResource(R.string.quotationapp),
                 color = Color(0xFF283C63),
                 fontSize = 20.sp,
             )
@@ -64,14 +76,14 @@ fun LoginPage() {
 
         Text(modifier = Modifier
             .padding(70.dp),
-            text = "Вход",
+            text = stringResource(R.string.enter),
             color = Color(0xFF283C63),
         )
 
         Text(modifier = Modifier
             .padding(top=100.dp),
             fontSize = 16.sp,
-            text = "Введите почту и пароль для входа",
+            text = stringResource(R.string.inp1),
             textAlign = TextAlign.Center,
             color = Color(0xFFA7AAAE)
         )
@@ -104,7 +116,7 @@ fun LoginPage() {
                 modifier = Modifier
                     .fillMaxSize(0.1f)
             )
-            Text( "Назад" , color = Color(0xFFA7AAAE))
+            Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
         }
 
         TextButton( modifier = Modifier
@@ -112,7 +124,7 @@ fun LoginPage() {
             onClick = { /*TODO*/ },
         ) {
 
-            Text( "Далее" , color = Color(0xFF283C63))
+            Text( stringResource(R.string.next) , color = Color(0xFF283C63))
             Image(
                 painter = painterResource(id = R.drawable.img_4),
                 contentDescription = "",
@@ -139,7 +151,7 @@ fun EmailTextField(
         textStyle = MaterialTheme.typography.bodyMedium,
         value = emailValue,
         onValueChange = onEmailValueChange,
-        label = { Text("Почта") },
+        label = { Text(stringResource(R.string.email)) },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email)
     )
 }
@@ -154,7 +166,7 @@ fun PasswordTextField(
             .padding(start=50.dp),
         value = passwordValue,
         onValueChange = onPasswordValueChange,
-        label = { Text("Пароль") },
+        label = { Text(stringResource(R.string.password)) },
         textStyle = MaterialTheme.typography.bodyMedium,
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password)
