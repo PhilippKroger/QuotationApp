@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.quotationapplication.model.BaseModel
 import com.example.quotationapplication.model.Interest
 
 
@@ -21,11 +22,11 @@ import com.example.quotationapplication.model.Interest
 fun SignUpPage3() {
     val interestList = remember {
         listOf(
-            Interest(1, "Интерес 1"),
-            Interest(2, "Интерес 2"),
-            Interest(3, "Интерес 3"),
-            Interest(4, "Интерес 4"),
-            Interest(5, "Интерес 5")
+            Interest(baseModel = BaseModel(1), "Интерес 1"),
+            Interest(baseModel = BaseModel(2), "Интерес 2"),
+            Interest(baseModel = BaseModel(3), "Интерес 3"),
+            Interest(baseModel = BaseModel(4), "Интерес 4"),
+            Interest(baseModel = BaseModel(5), "Интерес 5")
         )
     }
 
