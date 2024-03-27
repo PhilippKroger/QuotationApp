@@ -1,6 +1,8 @@
 package com.example.quotationapplication.model
 
 data class Interest(
-    val id: Int,
-    val name: String
-)
+    val name: String,
+    val baseModel: BaseModel
+){
+    val id: Int by baseModel::id
+}

@@ -1,6 +1,8 @@
 package com.example.quotationapplication.model
 
 data class Category(
-    val id: BaseModel,
-    val name: String
-)
+    val name: String,
+    val baseModel: BaseModel
+){
+    val id: Int by baseModel::id
+}

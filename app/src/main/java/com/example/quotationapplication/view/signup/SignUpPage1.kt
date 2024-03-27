@@ -31,12 +31,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.quotationapplication.R
 
 
 @ExperimentalFoundationApi
 @Composable
-fun SignUpPage1() {
+fun SignUpPage1(navController: NavController) {
     Box(
         modifier = Modifier
             .background(Color(0xFFFFFFFF))
@@ -116,7 +117,7 @@ fun SignUpPage1() {
     ) {
         TextButton( modifier = Modifier
             .padding(end=180.dp),
-            onClick = { /*TODO*/ },
+            onClick = { navController.popBackStack() },
 
             ) {
             Image(

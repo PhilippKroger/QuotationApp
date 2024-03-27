@@ -1,6 +1,5 @@
 package com.example.quotationapplication.view
 
-import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,24 +29,16 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import com.example.quotationapplication.R
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 
 @ExperimentalFoundationApi
 @Composable
-fun LoginPage() {
+fun LoginPage(navController: NavController) {
     Box(
         modifier = Modifier
-            .background(Color(0xFFFFFFFF))
+            .background(Color.White)
             .fillMaxSize()
             .padding(20.dp),
         contentAlignment = Alignment.TopCenter
@@ -107,14 +98,15 @@ fun LoginPage() {
     ) {
         TextButton( modifier = Modifier
             .padding(end=180.dp),
-            onClick = { /*TODO*/ },
+            onClick = { navController.popBackStack() },
 
         ) {
             Image(
                 painter = painterResource(id = R.drawable.back_icon),
                 contentDescription = "",
                 modifier = Modifier
-                    .fillMaxSize(0.1f)
+                    .fillMaxSize(0.1f),
+
             )
             Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
         }

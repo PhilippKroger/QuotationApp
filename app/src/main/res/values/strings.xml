@@ -14,4 +14,9 @@
     <string name="rep_password">Повторите пароль</string>
     <string name="br_that_int">Выберете то, что вам действительно интересно</string>
     <string name="intersts">Интересы</string>
+    <string name="ldata">Личные данные</string>
+    <string name="enter_r_data">Укажите настоящие имя, фамилию и дату  рождения</string>
+    <string name="name">Имя</string>
+    <string name="lname">Фамилия</string>
+    <string name="brth">Дата рождения</string>
 </resources>
