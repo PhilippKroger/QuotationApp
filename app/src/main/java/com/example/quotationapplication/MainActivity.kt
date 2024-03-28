@@ -11,6 +11,7 @@ import com.example.quotationapplication.view.LoginPage
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.quotationapplication.core.presentation.signup.SignUpPage3
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +26,11 @@ class MainActivity : ComponentActivity() {
     fun qApp() {
         val navController = rememberNavController()
 
-        NavHost(navController = navController, startDestination = "launcherPage") {
+        NavHost(navController = navController, startDestination = "SignUpPage3") {
             composable("launcherPage") { LauncherPage(navController) }
             composable("SignUpPage1") { SignUpPage1(navController) }
             composable("LoginPage") { LoginPage(navController) }
+            composable("SignUpPage3") { SignUpPage3(navController) }
         }
     }
 

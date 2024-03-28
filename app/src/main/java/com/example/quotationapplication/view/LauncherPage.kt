@@ -54,10 +54,3 @@ fun LauncherPage(navController: NavController) {
 
     }
 }
-
-@Composable
-fun OutlinedButtonExample(onClick: () -> Unit) {
-    OutlinedButton(onClick = { onClick() }) {
-        Text("Outlined")
-    }
-}
