@@ -1,23 +1,11 @@
-package com.example.quotationapplication
+package com.example.quotationapplication.view
 
-import android.graphics.drawable.Icon
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -26,16 +14,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.quotationapplication.R
 
 
 @ExperimentalFoundationApi
 @Composable
-fun LauncherPage() {
+fun LauncherPage(navController: NavController) {
     Box(
         modifier = Modifier
-            .background(Color(0xFFFFFFFF))
+            .background(Color.White)
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
@@ -50,24 +40,17 @@ fun LauncherPage() {
 
         OutlinedButton(
             modifier = Modifier.padding(top=500.dp),
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate("SignUpPage1") },
         ) {
-            Text("Регистрация" , color = Color(0xFF283C63))
+            Text(stringResource(R.string.reg) , color = Color(0xFF283C63))
         }
 
         TextButton(
             modifier = Modifier.padding(top=600.dp),
-            onClick = { /*TODO*/ }
+            onClick = { navController.navigate("LoginPage") }
         ) {
-            Text("Вход" , color = Color(0xFF283C63))
+            Text(stringResource(R.string.enter) , color = Color(0xFF283C63))
         }
 
-    }
-}
-
-@Composable
-fun OutlinedButtonExample(onClick: () -> Unit) {
-    OutlinedButton(onClick = { onClick() }) {
-        Text("Outlined")
     }
 }

@@ -1,26 +1,42 @@
 package com.example.quotationapplication
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.quotationapplication.ui.theme.QuotationApplicationTheme
+import com.example.quotationapplication.core.presentation.signup.SignUpPage1
+import com.example.quotationapplication.view.LauncherPage
+import com.example.quotationapplication.view.LoginPage
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.quotationapplication.core.presentation.signup.SignUpPage2
+import com.example.quotationapplication.core.presentation.signup.SignUpPage3
 
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalFoundationApi::class)
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            QuotationApplicationTheme {
-                LauncherPage()
-            }
+            qApp()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    @OptIn(ExperimentalFoundationApi::class)
+    @Composable
+    fun qApp() {
+        val navController = rememberNavController()
+
+        NavHost(navController = navController, startDestination = "launcherPage") {
+            composable("launcherPage") { LauncherPage(navController) }
+            composable("LoginPage") { LoginPage(navController) }
+            composable("SignUpPage1") { SignUpPage1(navController) }
+            composable("SignUpPage2") { SignUpPage2(navController) }
+            composable("SignUpPage3") { SignUpPage3(navController) }
         }
     }
 }
