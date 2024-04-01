@@ -31,6 +31,8 @@ import androidx.compose.ui.text.style.TextAlign
 import com.example.quotationapplication.R
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.example.quotationapplication.fragments.BackButton
+import com.example.quotationapplication.fragments.NextButton
 
 
 @ExperimentalFoundationApi
@@ -96,34 +98,9 @@ fun LoginPage(navController: NavController) {
         contentAlignment = Alignment.BottomCenter
 
     ) {
-        TextButton( modifier = Modifier
-            .padding(end=180.dp),
-            onClick = { navController.popBackStack() },
 
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.back_icon),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxSize(0.1f),
-
-            )
-            Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
-        }
-
-        TextButton( modifier = Modifier
-            .padding(start=180.dp),
-            onClick = { /*TODO*/ },
-        ) {
-
-            Text( stringResource(R.string.next) , color = Color(0xFF283C63))
-            Image(
-                painter = painterResource(id = R.drawable.img_4),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxSize(0.10f)
-            )
-        }
+        BackButton(navController = navController)
+        NextButton(navController = navController, nxt_page = "LauncherPage")
     }
 
 

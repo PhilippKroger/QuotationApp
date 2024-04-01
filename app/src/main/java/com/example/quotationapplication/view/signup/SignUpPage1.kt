@@ -1,6 +1,10 @@
 package com.example.quotationapplication.core.presentation.signup
 
 
+import android.graphics.fonts.Font
+import android.graphics.fonts.FontFamily
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,6 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
@@ -33,8 +39,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quotationapplication.R
+import com.example.quotationapplication.fragments.BackButton
+import com.example.quotationapplication.fragments.NextButton
 
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @ExperimentalFoundationApi
 @Composable
 fun SignUpPage1(navController: NavController) {
@@ -67,10 +76,13 @@ fun SignUpPage1(navController: NavController) {
             )
         }
 
+
         Text(modifier = Modifier
             .padding(70.dp),
             text = stringResource(R.string.enter_data),
             color = Color(0xFF283C63),
+            fontSize = 20.sp,
+
         )
 
         Text(modifier = Modifier
@@ -96,9 +108,9 @@ fun SignUpPage1(navController: NavController) {
         PasswordTextField2(passwordValue = passwordValue, onPasswordValueChange = setPasswordValue)
         Text(
             modifier = Modifier
-                .padding(start=25.dp)
-                .padding(end=25.dp)
-                .padding(top=10.dp)
+                .padding(start = 25.dp)
+                .padding(end = 25.dp)
+                .padding(top = 10.dp)
                 .align(Alignment.CenterHorizontally),
             text = stringResource(R.string.pt_next),
             fontSize = 13.sp,
@@ -115,36 +127,11 @@ fun SignUpPage1(navController: NavController) {
         contentAlignment = Alignment.BottomCenter
 
     ) {
-        TextButton( modifier = Modifier
-            .padding(end=180.dp),
-            onClick = { navController.popBackStack() },
+        BackButton(navController = navController)
+        NextButton(navController = navController, nxt_page = "SignUpPage2")
 
-            ) {
-            Image(
-                painter = painterResource(id = R.drawable.back_icon),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxSize(0.1f)
-            )
-            Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
-        }
-
-        TextButton( modifier = Modifier
-            .padding(start=180.dp),
-            onClick = { /*TODO*/ },
-        ) {
-
-            Text( stringResource(R.string.next) , color = Color(0xFF283C63))
-            Image(
-                painter = painterResource(id = R.drawable.img_4),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxSize(0.10f)
-            )
-        }
     }
 }
-
 
 
 @Composable

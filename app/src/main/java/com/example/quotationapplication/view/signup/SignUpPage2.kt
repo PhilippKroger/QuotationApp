@@ -29,11 +29,14 @@ import androidx.compose.ui.unit.sp
 import com.example.quotationapplication.R
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
+import com.example.quotationapplication.fragments.BackButton
+import com.example.quotationapplication.fragments.NextButton
 
 
 @ExperimentalFoundationApi
 @Composable
-fun SignUpPage2() {
+fun SignUpPage2(navController: NavController) {
     Box(
         modifier = Modifier
             .background(Color(0xFFFFFFFF))
@@ -67,6 +70,7 @@ fun SignUpPage2() {
             .padding(70.dp),
             text = stringResource(R.string.ldata),
             color = Color(0xFF283C63),
+            fontSize = 20.sp,
         )
 
         Text(modifier = Modifier
@@ -102,33 +106,8 @@ fun SignUpPage2() {
         contentAlignment = Alignment.BottomCenter
 
     ) {
-        TextButton( modifier = Modifier
-            .padding(end=180.dp),
-            onClick = { },
-
-            ) {
-            Image(
-                painter = painterResource(id = R.drawable.back_icon),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxSize(0.1f)
-            )
-            Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
-        }
-
-        TextButton( modifier = Modifier
-            .padding(start=180.dp),
-            onClick = { /*TODO*/ },
-        ) {
-
-            Text( stringResource(R.string.next) , color = Color(0xFF283C63))
-            Image(
-                painter = painterResource(id = R.drawable.img_4),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxSize(0.10f)
-            )
-        }
+        BackButton(navController = navController)
+        NextButton(navController = navController, nxt_page = "SignUpPage3")
     }
 }
 
