@@ -21,14 +21,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            qApp()
+            QuotationApp()
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
-    fun qApp() {
+    fun QuotationApp() {
         val navController = rememberNavController()
 
         NavHost(navController = navController, startDestination = "launcherPage") {

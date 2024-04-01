@@ -27,8 +27,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import com.example.quotationapplication.R
 import androidx.compose.ui.res.stringResource
+
+import com.example.quotationapplication.R
+
 import androidx.navigation.NavController
 
 

@@ -24,10 +24,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.quotationapplication.R
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+
 import androidx.navigation.NavController
+
+import com.example.quotationapplication.R
 import com.example.quotationapplication.view.BackButton
 import com.example.quotationapplication.view.NextButton
 
@@ -85,6 +87,7 @@ fun SignUpPage2(navController: NavController) {
     val (nameValue, setEmailValue) = remember { mutableStateOf("") }
     val (lastnameValue, setPasswordValue) = remember { mutableStateOf("") }
     val (birthValue, setPasswordValue1) = remember { mutableStateOf("") }
+
     Column(
         modifier = Modifier
             .padding(top = 20.dp)
@@ -92,17 +95,13 @@ fun SignUpPage2(navController: NavController) {
         NameTextField3(emailValue = nameValue, onEmailValueChange = setEmailValue)
         LastnameTextField3(emailValue = lastnameValue, onEmailValueChange = setPasswordValue)
         BirthdayTextField3(emailValue = birthValue, onEmailValueChange = setPasswordValue1)
-
-
     }
 
 
 
     Box(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
-
     ) {
         BackButton(navController = navController)
         NextButton(navController = navController, nxt_page = "SignUpPage3")
@@ -169,56 +168,3 @@ fun DataFieldsPreview() {
 
     }
 }
-
-/*
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun datePicket() {
-    // Decoupled snackbar host state from scaffold state for demo purposes.
-    val snackState = remember { SnackbarHostState() }
-    val snackScope = rememberCoroutineScope()
-    SnackbarHost(hostState = snackState, Modifier)
-    val openDialog = remember { mutableStateOf(true) }
-    if (openDialog.value) {
-        val datePickerState = rememberDatePickerState()
-        val confirmEnabled = remember {
-            derivedStateOf { datePickerState.selectedDateMillis != null }
-        }
-        DatePickerDialog(
-            onDismissRequest = {
-                // Dismiss the dialog when the user clicks outside the dialog or on the back
-                // button. If you want to disable that functionality, simply use an empty
-                // onDismissRequest.
-                openDialog.value = false
-            },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        openDialog.value = false
-                        snackScope.launch {
-                            snackState.showSnackbar(
-                                "Selected date timestamp: ${datePickerState.selectedDateMillis}"
-                            )
-                        }
-                    },
-                    enabled = confirmEnabled.value
-                ) {
-                    Text("OK")
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        openDialog.value = false
-                    }
-                ) {
-                    Text("Cancel")
-                }
-            }
-        ) {
-            DatePicker(state = datePickerState)
-        }
-    }
-}
-
- */

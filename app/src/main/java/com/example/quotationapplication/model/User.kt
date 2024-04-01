@@ -1,8 +1,5 @@
 package com.example.quotationapplication.model
 
-import com.example.quotationapplication.model.Interest
-import com.example.quotationapplication.model.Role
-
 data class User(
     val id: Int,
     val email: String,

@@ -1,8 +1,8 @@
 package com.example.quotationapplication.core.presentation.signup
 
-
 import android.os.Build
 import androidx.annotation.RequiresApi
+
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,7 +32,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 import androidx.navigation.NavController
+
 import com.example.quotationapplication.R
 import com.example.quotationapplication.view.BackButton
 import com.example.quotationapplication.view.NextButton
@@ -77,7 +79,6 @@ fun SignUpPage1(navController: NavController) {
             text = stringResource(R.string.enter_data),
             color = Color(0xFF283C63),
             fontSize = 20.sp,
-
         )
 
         Text(modifier = Modifier
@@ -111,16 +112,12 @@ fun SignUpPage1(navController: NavController) {
             fontSize = 13.sp,
             color = Color(0xFFA7AAAE),
             textAlign = TextAlign.Center
-
-
         )
     }
 
     Box(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
-
     ) {
         BackButton(navController = navController)
         NextButton(navController = navController, nxt_page = "SignUpPage2")

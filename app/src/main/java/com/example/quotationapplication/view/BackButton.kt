@@ -11,21 +11,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+
 import androidx.navigation.NavController
+
 import com.example.quotationapplication.R
 
 @Composable
 fun BackButton(navController: NavController) {
-    TextButton( modifier = Modifier
-        .padding(end=180.dp),
+    TextButton( modifier = Modifier.padding(end=180.dp),
         onClick = { navController.popBackStack() },
-
         ) {
         Image(
             painter = painterResource(id = R.drawable.back_icon),
             contentDescription = "",
-            modifier = Modifier
-                .fillMaxSize(0.1f)
+            modifier = Modifier.fillMaxSize(0.1f)
         )
         Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
     }
