@@ -1,4 +1,4 @@
-package com.example.quotationapplication
+package com.example.quotationapplication.presentation
 
 import android.os.Build
 import android.os.Bundle

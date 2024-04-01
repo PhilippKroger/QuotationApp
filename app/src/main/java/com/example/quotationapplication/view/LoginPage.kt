@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.text.input.KeyboardType
@@ -31,8 +30,6 @@ import androidx.compose.ui.text.style.TextAlign
 import com.example.quotationapplication.R
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
-import com.example.quotationapplication.fragments.BackButton
-import com.example.quotationapplication.fragments.NextButton
 
 
 @ExperimentalFoundationApi

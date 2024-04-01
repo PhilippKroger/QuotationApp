@@ -4,11 +4,7 @@ package com.example.quotationapplication.core.presentation.signup
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -29,8 +25,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.quotationapplication.R
 import androidx.compose.ui.res.stringResource
-import com.example.quotationapplication.fragments.BackButton
-import com.example.quotationapplication.fragments.NextButton
+import com.example.quotationapplication.view.BackButton
+import com.example.quotationapplication.view.NextButton
 
 
 @ExperimentalFoundationApi

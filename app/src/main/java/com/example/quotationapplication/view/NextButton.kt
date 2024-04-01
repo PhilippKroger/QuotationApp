@@ -1,4 +1,4 @@
-package com.example.quotationapplication.fragments
+package com.example.quotationapplication.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,18 +15,18 @@ import androidx.navigation.NavController
 import com.example.quotationapplication.R
 
 @Composable
-fun BackButton(navController: NavController) {
+fun NextButton(navController: NavController, nxt_page: String) {
     TextButton( modifier = Modifier
-        .padding(end=180.dp),
-        onClick = { navController.popBackStack() },
+        .padding(start=180.dp),
+        onClick = { navController.navigate("$nxt_page") },
+    ) {
 
-        ) {
+        Text( stringResource(R.string.next) , color = Color(0xFF283C63))
         Image(
-            painter = painterResource(id = R.drawable.back_icon),
+            painter = painterResource(id = R.drawable.img_4),
             contentDescription = "",
             modifier = Modifier
-                .fillMaxSize(0.1f)
+                .fillMaxSize(0.10f)
         )
-        Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
     }
 }
