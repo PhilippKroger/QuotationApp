@@ -1,4 +1,4 @@
-package com.example.quotationapplication.view
+package com.example.quotationapplication.view.details
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 import com.example.quotationapplication.R
+import com.example.quotationapplication.ui.theme.mulishFontFamily
 
 @Composable
 fun BackButton(navController: NavController) {
@@ -26,6 +27,6 @@ fun BackButton(navController: NavController) {
             contentDescription = "",
             modifier = Modifier.fillMaxSize(0.1f)
         )
-        Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE))
+        Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE),fontFamily = mulishFontFamily)
     }
 }

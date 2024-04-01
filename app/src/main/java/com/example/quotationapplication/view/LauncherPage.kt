@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 import com.example.quotationapplication.R
+import com.example.quotationapplication.ui.theme.mulishFontFamily
 
 
 @ExperimentalFoundationApi
@@ -44,14 +45,14 @@ fun LauncherPage(navController: NavController) {
             modifier = Modifier.padding(top=500.dp),
             onClick = { navController.navigate("SignUpPage1") },
         ) {
-            Text(stringResource(R.string.reg) , color = Color(0xFF283C63))
+            Text(stringResource(R.string.reg) , color = Color(0xFF283C63), fontFamily = mulishFontFamily)
         }
 
         TextButton(
             modifier = Modifier.padding(top=600.dp),
             onClick = { navController.navigate("LoginPage") }
         ) {
-            Text(stringResource(R.string.enter) , color = Color(0xFF283C63))
+            Text(stringResource(R.string.enter) , color = Color(0xFF283C63), fontFamily = mulishFontFamily)
         }
 
     }

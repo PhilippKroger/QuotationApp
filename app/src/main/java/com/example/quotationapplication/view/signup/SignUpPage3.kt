@@ -10,74 +10,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.width
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.stringResource
 
 import androidx.navigation.NavController
 
 import com.example.quotationapplication.model.Interest
 import com.example.quotationapplication.R
-import com.example.quotationapplication.view.BackButton
-import com.example.quotationapplication.view.NextButton
+import com.example.quotationapplication.view.details.BackButton
+import com.example.quotationapplication.view.details.Header
+import com.example.quotationapplication.view.details.NextButton
 
 
 @ExperimentalFoundationApi
 @Composable
 fun SignUpPage3(navController: NavController) {
-    Box(
-        modifier = Modifier
-            .background(Color(0xFFFFFFFF))
-            .fillMaxSize()
-            .padding(20.dp),
-        contentAlignment = Alignment.TopCenter
-    ) {
-        Row(modifier = Modifier) {
-            Image(
-                painter = painterResource(id = R.drawable.img),
-                contentDescription = "",
-                modifier = Modifier.width(10.dp)
-            )
-
-            Image(
-                painter = painterResource(id = R.drawable.img_1),
-                contentDescription = "",
-                modifier = Modifier.width(10.dp)
-            )
-
-            Text(modifier = Modifier
-                .padding(start=10.dp),
-                text = stringResource(R.string.quotationapp),
-                color = Color(0xFF283C63),
-                fontSize = 20.sp,
-            )
-        }
-
-        Text(modifier = Modifier
-            .padding(70.dp),
-            text = stringResource(R.string.intersts),
-            color = Color(0xFF283C63),
-            fontSize = 20.sp,
-        )
-
-        Text(modifier = Modifier
-            .padding(top = 100.dp)
-            .align(Alignment.TopCenter),
-            fontSize = 16.sp,
-            text = stringResource(R.string.br_that_int),
-            textAlign = TextAlign.Center,
-            color = Color(0xFFA7AAAE)
-        )
-    }
+    Header(title1 = stringResource(R.string.intersts), title2 = stringResource(R.string.br_that_int))
 
     val interestList = remember {
         listOf(
