@@ -6,9 +6,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
@@ -110,6 +116,10 @@ fun QuotationScreen(navController: NavController) {
             }
         }
     }
+
+
+
+
     val (searchValue, setEmailValue) = remember { mutableStateOf("") }
     SearchTextField(searchValue = searchValue, onSearchValueChange = setEmailValue)
 
@@ -130,9 +140,10 @@ fun QuotationScreen(navController: NavController) {
 
     val postList = remember {
         listOf(
-            Quote(1, author = Author(1, "PhilippKroger", "wef", "wef"), text="Колобок повесился", 1, 0, categories = listOf(Category(1, "Физика"))),
-            Quote(2, author = Author(2, "MaksimBondarev", "wef", "wef"), text="Текст поста", 123, 24, categories = listOf(Category(2, "Математика"))),
-        )
+            Quote(1, author = Author(1, "Квинтилиан М. Ф.", "писатель", "писатель"), text="Практика без теории ценнее, чем теория без практики", 120, 12, categories = listOf(Category(1, "Физика"))),
+            Quote(2, author = Author(2, "Котляр П. И.", "писатель", "писатель"), text="Быстро - это хорошо, только ракете пиздец", 123, 24, categories = listOf(Category(2, "Математика"))),
+            Quote(3, author = Author(3, "Эрхарт А.", "писатель", "писатель"), text="Сложнее всего начать действовать, все остальное зависит только от упорства", 5, 1, categories = listOf(Category(2, "Математика"))),
+            )
     }
 
     postListOfQuotations(postList)
@@ -157,13 +168,14 @@ fun SearchTextField(
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email)
 
     )
+
 }
 
 @Composable
 fun InterestListSearch(interestList: List<Interest>) {
     Box(
         modifier = Modifier
-            .padding(top = 140.dp)
+            .padding(top = 150.dp)
             .padding(start = 15.dp)
     ) {
 
@@ -191,51 +203,131 @@ fun postListOfQuotations(posts: List<Quote>) {
             .padding(top = 200.dp)
             .fillMaxSize()
     ) {
-        Column {
-            posts.forEach { post ->
+        LazyColumn {
+            items(posts) { post ->
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(start = 20.dp)
+                    modifier = Modifier.padding(bottom = 4.dp).padding(top = 20.dp)
                 ) {
-                    Row {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_1),
-                            contentDescription = "",
-                            modifier = Modifier
-                                .width(4.dp)
-                                .padding(top = 5.dp)
-                        )
-                        Image(
-                            painter = painterResource(id = R.drawable.img_1),
-                            contentDescription = "",
-                            modifier = Modifier
-                                .width(4.dp)
-                                .padding(top = 5.dp)
-                        )
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .padding(start = 25.dp)
+                        .padding(bottom = 0.dp)) {
+                        Row {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_1),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(8.dp)
+                                    .padding(top = 5.dp)
+                            )
+                            Image(
+                                painter = painterResource(id = R.drawable.img_1),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(8.dp)
+                                    .padding(top = 5.dp)
+                            )
+
+                            Text(modifier = Modifier
+                                .padding(start=8.dp),
+                                text = "${post.author.name}",
+                                color = Color(0xFF283C63),
+                                fontSize = 18.sp,
+                                fontFamily = mulishFontFamily
+                            )
+                            Spacer(modifier = Modifier.weight(0.5f))
+                            Box(
+                                modifier = Modifier.padding(end = 30.dp),
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.menu_icon),
+                                    contentDescription = "",
+                                    modifier = Modifier
+                                        .size(22.dp) // Устанавливаем размер изображения
+                                        .padding(end = 0.dp)
+                                        .padding(top = 7.dp)
+                                )
+                            }
+                        }
 
                         Text(modifier = Modifier
-                            .padding(start=5.dp),
-                            text = "${post.author.name}",
-                            color = Color(0xFF283C63),
-                            fontSize = 14.sp,
+                            .padding(start = 0.dp)
+                            .padding(top = 40.dp)
+                            .padding(end = 30.dp),
+                            text = "${post.text}",
+                            color = Color(0xFF111111),
+                            fontSize = 16.sp,
                             fontFamily = mulishFontFamily
                         )
 
-                        Box {
 
+
+                    }
+
+                    Row(
+                        modifier = Modifier
+                            .padding(top = 80.dp)
+                            .padding(start = 10.dp)
+                    ) {
+                        IconButton(
+                            onClick = {  }
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.up_icon),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(16.dp)
+                                    .fillMaxSize(1.0f),
+                            )
                         }
 
-                        Image(
-                            painter = painterResource(id = R.drawable.menu_icon),
-                            contentDescription = "",
+                        Text(
                             modifier = Modifier
-                                .width(24.dp)
-                                .padding(top = 5.dp),
+                                .padding(top=15.dp),
+                            text = "${post.likes}",
+                            fontFamily = mulishFontFamily
                         )
+
+                        IconButton(
+                            onClick = {  }
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.down_icon),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(16.dp)
+                                    .fillMaxSize(1.0f),
+                            )
+                        }
+
+                        Text(
+                            modifier = Modifier
+                                .padding(top=15.dp),
+                            text = "${post.dislikes}",
+                            fontFamily = mulishFontFamily
+                        )
+
+                        IconButton(
+                            onClick = {  }
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.share_icon),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(16.dp)
+                                    .fillMaxSize(1.0f),
+                            )
+                        }
 
                     }
                 }
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(1.dp)
+                        .background(Color.LightGray)
+                )
             }
         }
     }
