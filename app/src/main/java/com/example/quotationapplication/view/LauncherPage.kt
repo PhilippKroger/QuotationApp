@@ -1,5 +1,6 @@
 package com.example.quotationapplication.view
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -44,6 +45,7 @@ fun LauncherPage(navController: NavController) {
         OutlinedButton(
             modifier = Modifier.padding(top=500.dp),
             onClick = { navController.navigate("SignUpPage1") },
+            border = BorderStroke(1.5.dp, Color(0xFF283C63)),
         ) {
             Text(stringResource(R.string.reg) , color = Color(0xFF283C63), fontFamily = mulishFontFamily)
         }

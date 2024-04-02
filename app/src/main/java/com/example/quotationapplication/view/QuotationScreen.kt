@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Card
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -31,7 +32,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quotationapplication.R
 import com.example.quotationapplication.core.presentation.signup.InterestList
+import com.example.quotationapplication.model.Author
+import com.example.quotationapplication.model.Category
 import com.example.quotationapplication.model.Interest
+import com.example.quotationapplication.model.Quote
 import com.example.quotationapplication.ui.theme.mulishFontFamily
 
 @Composable
@@ -123,6 +127,18 @@ fun QuotationScreen(navController: NavController) {
 
     InterestListSearch(interestList = interestList)
 
+
+    val postList = remember {
+        listOf(
+            Quote(1, author = Author(1, "PhilippKroger", "wef", "wef"), text="Колобок повесился", 1, 0, categories = listOf(Category(1, "Физика"))),
+            Quote(2, author = Author(2, "MaksimBondarev", "wef", "wef"), text="Текст поста", 123, 24, categories = listOf(Category(2, "Математика"))),
+        )
+    }
+
+    postListOfQuotations(postList)
+
+
+
 }
 
 @Composable
@@ -146,7 +162,9 @@ fun SearchTextField(
 @Composable
 fun InterestListSearch(interestList: List<Interest>) {
     Box(
-        modifier = Modifier.padding(top=140.dp).padding(start = 15.dp)
+        modifier = Modifier
+            .padding(top = 140.dp)
+            .padding(start = 15.dp)
     ) {
 
         LazyRow {
@@ -159,6 +177,64 @@ fun InterestListSearch(interestList: List<Interest>) {
                 ) {
                     Text(text = interest.name, color = Color(0xFF283C63), fontFamily = mulishFontFamily)
                     // , color = Color(0xFF283C63), fontFamily = mulishFontFamily
+                }
+            }
+        }
+    }
+}
+
+
+@Composable
+fun postListOfQuotations(posts: List<Quote>) {
+    Box(
+        modifier = Modifier
+            .padding(top = 200.dp)
+            .fillMaxSize()
+    ) {
+        Column {
+            posts.forEach { post ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(start = 20.dp)
+                ) {
+                    Row {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_1),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .width(4.dp)
+                                .padding(top = 5.dp)
+                        )
+                        Image(
+                            painter = painterResource(id = R.drawable.img_1),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .width(4.dp)
+                                .padding(top = 5.dp)
+                        )
+
+                        Text(modifier = Modifier
+                            .padding(start=5.dp),
+                            text = "${post.author.name}",
+                            color = Color(0xFF283C63),
+                            fontSize = 14.sp,
+                            fontFamily = mulishFontFamily
+                        )
+
+                        Box {
+
+                        }
+
+                        Image(
+                            painter = painterResource(id = R.drawable.menu_icon),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .width(24.dp)
+                                .padding(top = 5.dp),
+                        )
+
+                    }
                 }
             }
         }
