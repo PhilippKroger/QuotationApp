@@ -1,7 +1,5 @@
 package com.example.quotationapplication.model
 
-import com.example.quotationapplication.model.Author
-import com.example.quotationapplication.model.Category
 
 data class Quote(
     val id: Int,

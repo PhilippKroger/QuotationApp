@@ -1,99 +1,48 @@
 package com.example.quotationapplication.core.presentation.signup
 
-
-import android.graphics.fonts.Font
-import android.graphics.fonts.FontFamily
 import android.os.Build
 import androidx.annotation.RequiresApi
+
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 import androidx.navigation.NavController
+
 import com.example.quotationapplication.R
-import com.example.quotationapplication.fragments.BackButton
-import com.example.quotationapplication.fragments.NextButton
+import com.example.quotationapplication.ui.theme.mulishFontFamily
+import com.example.quotationapplication.view.details.BackButton
+import com.example.quotationapplication.view.details.Header
+import com.example.quotationapplication.view.details.NextButton
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @ExperimentalFoundationApi
 @Composable
 fun SignUpPage1(navController: NavController) {
-    Box(
-        modifier = Modifier
-            .background(Color(0xFFFFFFFF))
-            .fillMaxSize()
-            .padding(20.dp),
-        contentAlignment = Alignment.TopCenter
 
-    ) {
-        Row(modifier = Modifier) {
-            Image(
-                painter = painterResource(id = R.drawable.img),
-                contentDescription = "",
-                modifier = Modifier.width(10.dp)
-            )
-
-            Image(
-                painter = painterResource(id = R.drawable.img_1),
-                contentDescription = "",
-                modifier = Modifier.width(10.dp)
-            )
-
-            Text(modifier = Modifier
-                .padding(start=10.dp),
-                text = stringResource(R.string.quotationapp),
-                color = Color(0xFF283C63),
-                fontSize = 20.sp,
-            )
-        }
-
-
-        Text(modifier = Modifier
-            .padding(70.dp),
-            text = stringResource(R.string.enter_data),
-            color = Color(0xFF283C63),
-            fontSize = 20.sp,
-
-        )
-
-        Text(modifier = Modifier
-            .padding(top = 100.dp)
-            .align(Alignment.TopCenter),
-            fontSize = 16.sp,
-            text = stringResource(R.string.enter_data_2),
-            textAlign = TextAlign.Center,
-            color = Color(0xFFA7AAAE)
-        )
-    }
+    Header(title1 = stringResource(R.string.enter_data), title2 = stringResource(R.string.enter_data_2))
 
 
     val (emailValue, setEmailValue) = remember { mutableStateOf("") }
@@ -115,17 +64,14 @@ fun SignUpPage1(navController: NavController) {
             text = stringResource(R.string.pt_next),
             fontSize = 13.sp,
             color = Color(0xFFA7AAAE),
-            textAlign = TextAlign.Center
-
-
+            textAlign = TextAlign.Center,
+            fontFamily = mulishFontFamily
         )
     }
 
     Box(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
-
     ) {
         BackButton(navController = navController)
         NextButton(navController = navController, nxt_page = "SignUpPage2")
@@ -146,7 +92,7 @@ fun EmailTextField1(
         textStyle = MaterialTheme.typography.bodyMedium,
         value = emailValue,
         onValueChange = onEmailValueChange,
-        label = { Text(stringResource(R.string.email)) },
+        label = { Text(stringResource(R.string.email), fontFamily = mulishFontFamily) },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email)
     )
 }
@@ -161,7 +107,7 @@ fun PasswordTextField1(
             .padding(start=50.dp),
         value = passwordValue,
         onValueChange = onPasswordValueChange,
-        label = { Text(stringResource(R.string.password)) },
+        label = { Text(stringResource(R.string.password), fontFamily = mulishFontFamily) },
         textStyle = MaterialTheme.typography.bodyMedium,
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password)
@@ -180,7 +126,7 @@ fun PasswordTextField2(
             .padding(top = 0.dp),
         value = passwordValue,
         onValueChange = onPasswordValueChange,
-        label = { Text(stringResource(R.string.rep_password)) },
+        label = { Text(stringResource(R.string.rep_password), fontFamily = mulishFontFamily) },
         textStyle = MaterialTheme.typography.bodyMedium,
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password)
