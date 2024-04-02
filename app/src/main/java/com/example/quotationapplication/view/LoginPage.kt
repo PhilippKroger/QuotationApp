@@ -30,6 +30,7 @@ import com.example.quotationapplication.view.details.Header
 import com.example.quotationapplication.view.details.NextButton
 
 
+
 @ExperimentalFoundationApi
 @Composable
 fun LoginPage(navController: NavController) {
@@ -53,11 +54,12 @@ fun LoginPage(navController: NavController) {
     ) {
 
         BackButton(navController = navController)
-        NextButton(navController = navController, nxt_page = "LauncherPage")
+        NextButton(navController = navController, nxt_page = "QuotationScreen")
     }
 
 
 }
+
 
 
 

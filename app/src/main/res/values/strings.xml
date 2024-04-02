@@ -19,4 +19,5 @@
     <string name="name">Имя</string>
     <string name="lname">Фамилия</string>
     <string name="brth">Дата рождения</string>
+    <string name="search">Поиск</string>
 </resources>
