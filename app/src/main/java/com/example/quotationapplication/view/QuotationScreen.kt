@@ -3,6 +3,7 @@ package com.example.quotationapplication.view
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,21 +18,27 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -120,9 +127,29 @@ fun QuotationScreen(navController: NavController) {
 
 
 
-    val (searchValue, setEmailValue) = remember { mutableStateOf("") }
-    SearchTextField(searchValue = searchValue, onSearchValueChange = setEmailValue)
+    //val (searchValue, setEmailValue) = remember { mutableStateOf("") }
+    //SearchTextField(searchValue = searchValue, onSearchValueChange = setEmailValue)
 
+    var searchQuery by remember { mutableStateOf("") }
+
+    // Function to handle changes in the search text field
+    val onSearchQueryChanged = { query: String ->
+        searchQuery = query
+    }
+
+    // Function to handle the execution of the search
+    val onSearchExecuted = {
+        // Do something with searchQuery, like calling a view model function
+        // For now, let's just print the current query
+        println("Search executed for query: $searchQuery")
+    }
+
+    // Call the SearchBar function, passing the required parameters
+    SearchBar(
+        searchQuery = searchQuery,
+        onSearchQueryChanged = onSearchQueryChanged,
+        onSearchExecuted = onSearchExecuted
+    )
 
 
     val interestList = remember {
@@ -331,4 +358,42 @@ fun postListOfQuotations(posts: List<Quote>) {
             }
         }
     }
+}
+
+
+
+@Composable
+fun SearchBar(
+    searchQuery: String,
+    onSearchQueryChanged: (String) -> Unit,
+    onSearchExecuted: () -> Unit
+) {
+    OutlinedTextField(
+        value = searchQuery,
+        onValueChange = onSearchQueryChanged,
+        placeholder = { Text(modifier = Modifier, text = "Поиск", fontFamily = mulishFontFamily, color = Color(0xFFA7AAAE)) },
+        leadingIcon = {
+            Icon(
+                modifier = Modifier
+                    .size(16.dp),
+                painter = painterResource(id = R.drawable.find_icon),
+                contentDescription = "Search",
+                tint = Color(0xFFA7AAAE)
+            )
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = KeyboardActions(onSearch = { onSearchExecuted() }),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 80.dp)
+            .padding(start = 20.dp)
+            .padding(end = 20.dp)
+            .border(BorderStroke(0.dp, Color.Transparent))
+            .background(Color(0xFFEFF1F4))
+            .height(50.dp)
+            ,
+        shape = RoundedCornerShape(8.dp), // Adjust the corner size to match the design
+
+    )
 }
