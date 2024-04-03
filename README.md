@@ -8,7 +8,7 @@
   <h3 align="center">QuotationApp</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    This is an application for quotes from their authors !
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -17,7 +17,7 @@
     ·
     <a href="https://github.com/PhilippKroger/QuotationApp/issues/new">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  
   </p>
 </div>
 
