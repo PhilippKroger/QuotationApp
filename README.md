@@ -2,8 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="![photo_2024-04-03_10-25-05](https://github.com/PhilippKroger/QuotationApp/assets/66637696/1eb39d4a-f1a2-40aa-a78f-b08c7b7a4b00)
-" alt="Logo" width="80" height="80">
+    <img src="https://github.com/PhilippKroger/QuotationApp/assets/66637696/1eb39d4a-f1a2-40aa-a78f-b08c7b7a4b00" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">QuotationApp</h3>
