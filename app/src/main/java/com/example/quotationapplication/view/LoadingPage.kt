@@ -13,12 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.quotationapplication.R
 
 
 @ExperimentalFoundationApi
 @Composable
-fun LoadingPage() {
+fun LoadingPage(navController: NavController) {
     Box(
         modifier = Modifier
             .background(Color(0xFFFBE8D3))
@@ -26,17 +27,14 @@ fun LoadingPage() {
         contentAlignment = Alignment.Center
     ) {
         Row(modifier = Modifier) {
+
             Image(
-                painter = painterResource(id = R.drawable.img),
+                painter = painterResource(id = R.drawable.app_logo),
                 contentDescription = "",
                 modifier = Modifier.height(64.dp)
             )
 
-            Image(
-                painter = painterResource(id = R.drawable.img_1),
-                contentDescription = "",
-                modifier = Modifier.height(64.dp)
-            )
+
         }
     }
 }
