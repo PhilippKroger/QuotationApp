@@ -19,14 +19,14 @@ import com.example.quotationapplication.ui.theme.mulishFontFamily
 
 @Composable
 fun NextButton(navController: NavController, nxt_page: String) {
-    TextButton( modifier = Modifier.padding(start=180.dp),
+    TextButton( modifier = Modifier.padding(start=180.dp).padding(top=140.dp),
         onClick = { navController.navigate(nxt_page) },
     ) {
         Text( stringResource(R.string.next) , color = Color(0xFF283C63), fontFamily = mulishFontFamily)
         Image(
-            painter = painterResource(id = R.drawable.img_4),
+            painter = painterResource(id = R.drawable.next_icon),
             contentDescription = "",
-            modifier = Modifier.fillMaxSize(0.10f)
+            modifier = Modifier.fillMaxSize(0.12f).padding(start = 5.dp).padding(top = 3.dp)
         )
     }
 }

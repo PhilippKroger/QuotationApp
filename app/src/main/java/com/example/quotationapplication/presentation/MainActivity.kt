@@ -17,6 +17,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quotationapplication.core.presentation.signup.SignUpPage2
 import com.example.quotationapplication.core.presentation.signup.SignUpPage3
+import com.example.quotationapplication.view.LoadingPage
 import com.example.quotationapplication.view.QuotationScreen
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +37,9 @@ class MainActivity : ComponentActivity() {
 
         NavHost(navController = navController, startDestination = "launcherPage") {
             composable("launcherPage") { LauncherPage(navController) }
+            composable("LoadingPage") { LoadingPage() }
             composable("LoginPage") { LoginPage(navController) }
+            composable("LoadingPage") { LoadingPage() }
             composable("QuotationActivity") { navController.navigate("QuotationActivity") }
             composable("QuotationScreen") { QuotationScreen(navController) }
             composable("SignUpPage1") { SignUpPage1(navController) }

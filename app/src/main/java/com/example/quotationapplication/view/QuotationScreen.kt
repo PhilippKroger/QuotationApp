@@ -21,6 +21,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -61,26 +63,22 @@ fun QuotationScreen(navController: NavController) {
         //contentAlignment = Alignment.TopCenter
 
     ) {
+
+
         Row(modifier = Modifier) {
-            Image(
-                painter = painterResource(id = R.drawable.img),
-                contentDescription = "",
-                modifier = Modifier
-                    .width(10.dp)
-                    .padding(top = 12.dp)
-            )
 
             Image(
-                painter = painterResource(id = R.drawable.img_1),
+                painter = painterResource(id = R.drawable.logo_icon),
                 contentDescription = "",
                 modifier = Modifier
-                    .width(10.dp)
-                    .padding(top = 12.dp)
+                    .width(36.dp)
+                    .padding(top = 5.dp)
             )
+
 
             Text(
                 modifier = Modifier
-                    .padding(start = 10.dp)
+                    .padding(start = 0.dp)
                     .padding(top = 8.dp),
                 text = stringResource(R.string.quotationapp),
                 color = Color(0xFF283C63),
@@ -99,7 +97,7 @@ fun QuotationScreen(navController: NavController) {
                         onClick = {  }
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.plus_icon),
+                            painter = painterResource(id = R.drawable.pl_icon),
                             contentDescription = "",
                             modifier = Modifier
                                 .width(24.dp)
@@ -109,7 +107,7 @@ fun QuotationScreen(navController: NavController) {
 
                     IconButton(onClick = { /*TODO*/ }) {
                         Image(
-                            painter = painterResource(id = R.drawable.q_icon),
+                            painter = painterResource(id = R.drawable.settings_icon),
                             contentDescription = "",
                             modifier = Modifier
                                 .width(24.dp)
@@ -233,7 +231,9 @@ fun postListOfQuotations(posts: List<Quote>) {
         LazyColumn {
             items(posts) { post ->
                 Box(
-                    modifier = Modifier.padding(bottom = 4.dp).padding(top = 20.dp)
+                    modifier = Modifier
+                        .padding(bottom = 4.dp)
+                        .padding(top = 20.dp)
                 ) {
                     Box(modifier = Modifier
                         .fillMaxSize()
@@ -241,22 +241,16 @@ fun postListOfQuotations(posts: List<Quote>) {
                         .padding(bottom = 0.dp)) {
                         Row {
                             Image(
-                                painter = painterResource(id = R.drawable.img_1),
+                                painter = painterResource(id = R.drawable.q_logo_icon),
                                 contentDescription = "",
                                 modifier = Modifier
-                                    .width(8.dp)
-                                    .padding(top = 5.dp)
-                            )
-                            Image(
-                                painter = painterResource(id = R.drawable.img_1),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .width(8.dp)
-                                    .padding(top = 5.dp)
+                                    .size(22.dp)
+                                    .padding(top = 7.dp)
                             )
 
+
                             Text(modifier = Modifier
-                                .padding(start=8.dp),
+                                .padding(start=5.dp),
                                 text = "${post.author.name}",
                                 color = Color(0xFF283C63),
                                 fontSize = 18.sp,
@@ -266,14 +260,17 @@ fun postListOfQuotations(posts: List<Quote>) {
                             Box(
                                 modifier = Modifier.padding(end = 30.dp),
                             ) {
-                                Image(
-                                    painter = painterResource(id = R.drawable.menu_icon),
-                                    contentDescription = "",
-                                    modifier = Modifier
-                                        .size(22.dp) // Устанавливаем размер изображения
-                                        .padding(end = 0.dp)
-                                        .padding(top = 7.dp)
-                                )
+                                IconButton(onClick = { /*TODO*/ }) {
+                                    Image(
+                                        painter = painterResource(id = R.drawable.param_icon),
+                                        contentDescription = "",
+                                        modifier = Modifier
+                                            .size(40.dp) // Устанавливаем размер изображения
+                                            .padding(end = 0.dp)
+                                            .padding(bottom = 22.dp)
+                                    )
+                                }
+
                             }
                         }
 
@@ -303,7 +300,7 @@ fun postListOfQuotations(posts: List<Quote>) {
                                 painter = painterResource(id = R.drawable.up_icon),
                                 contentDescription = "",
                                 modifier = Modifier
-                                    .width(16.dp)
+                                    .width(18.dp)
                                     .fillMaxSize(1.0f),
                             )
                         }
@@ -322,7 +319,7 @@ fun postListOfQuotations(posts: List<Quote>) {
                                 painter = painterResource(id = R.drawable.down_icon),
                                 contentDescription = "",
                                 modifier = Modifier
-                                    .width(16.dp)
+                                    .width(18.dp)
                                     .fillMaxSize(1.0f),
                             )
                         }
@@ -375,8 +372,8 @@ fun SearchBar(
         leadingIcon = {
             Icon(
                 modifier = Modifier
-                    .size(16.dp),
-                painter = painterResource(id = R.drawable.find_icon),
+                    .size(18.dp),
+                painter = painterResource(id = R.drawable.search_icon),
                 contentDescription = "Search",
                 tint = Color(0xFFA7AAAE)
             )
@@ -397,3 +394,4 @@ fun SearchBar(
 
     )
 }
+
