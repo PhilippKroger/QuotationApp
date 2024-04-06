@@ -9,13 +9,6 @@
 
   <p align="center">
     This is an application for quotes from their authors !
-    
-    <br />
-    <br />
-    <a href="https://github.com/PhilippKroger/QuotationApp">View Demo</a>
-    ·
-    <a href="https://github.com/PhilippKroger/QuotationApp/issues/new">Report Bug</a>
-    ·
   
   </p>
 </div>
