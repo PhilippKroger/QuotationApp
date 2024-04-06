@@ -25,7 +25,7 @@ fun BackButton(navController: NavController) {
         Image(
             painter = painterResource(id = R.drawable.back_icon),
             contentDescription = "",
-            modifier = Modifier.fillMaxSize(0.1f)
+            modifier = Modifier.fillMaxSize(0.1f).padding(end = 5.dp)
         )
         Text( stringResource(R.string.back) , color = Color(0xFFA7AAAE),fontFamily = mulishFontFamily)
     }
