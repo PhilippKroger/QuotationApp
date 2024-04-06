@@ -35,7 +35,7 @@ fun LauncherPage(navController: NavController) {
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.launcher_logo_background),
+            painter = painterResource(id = R.drawable.launcher_logo_icon),
             contentDescription = "",
             modifier = Modifier
                 .fillMaxSize(0.3f)

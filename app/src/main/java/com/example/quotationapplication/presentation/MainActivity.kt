@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 
         NavHost(navController = navController, startDestination = "launcherPage") {
             composable("launcherPage") { LauncherPage(navController) }
-            composable("LoadingPage") { LoadingPage(navController) }
+            composable("LoadingPage") { LoadingPage() }
             composable("LoginPage") { LoginPage(navController) }
             composable("LoadingPage") { LoadingPage() }
             composable("QuotationActivity") { navController.navigate("QuotationActivity") }
