@@ -32,15 +32,19 @@ fun Header(title1: String, title2: String) {
     ) {
         Row(modifier = Modifier) {
             Image(
-                painter = painterResource(id = R.drawable.logo_icon),
+                painter = painterResource(id = R.drawable.img),
                 contentDescription = "",
-                modifier = Modifier.width(35.dp).padding(top=0.dp)
+                modifier = Modifier.width(10.dp)
             )
 
-
+            Image(
+                painter = painterResource(id = R.drawable.img_1),
+                contentDescription = "",
+                modifier = Modifier.width(10.dp)
+            )
 
             Text(modifier = Modifier
-                .padding(top=5.dp),
+                .padding(start=10.dp),
                 text = stringResource(R.string.quotationapp),
                 color = Color(0xFF283C63),
                 fontSize = 20.sp,

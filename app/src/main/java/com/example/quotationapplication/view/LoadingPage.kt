@@ -27,12 +27,16 @@ fun LoadingPage() {
     ) {
         Row(modifier = Modifier) {
             Image(
-                painter = painterResource(id = R.drawable.logo_icon),
+                painter = painterResource(id = R.drawable.img),
                 contentDescription = "",
                 modifier = Modifier.height(64.dp)
             )
 
-
+            Image(
+                painter = painterResource(id = R.drawable.img_1),
+                contentDescription = "",
+                modifier = Modifier.height(64.dp)
+            )
         }
     }
 }
