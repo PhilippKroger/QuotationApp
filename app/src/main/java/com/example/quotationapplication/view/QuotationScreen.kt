@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -424,23 +425,34 @@ fun SearchBar(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MenuItemContent(iconPainter: Painter, text: String) {
-    Row(modifier = Modifier
-        .padding(top = 5.dp)
-        .padding(bottom = 5.dp)
-        .padding(start = 8.dp)
-        .padding(end = 8.dp)
 
-        ,verticalAlignment = Alignment.CenterVertically) {
-        Image(
-            painter = iconPainter,
-            contentDescription = null,
-            modifier = Modifier.size(18.dp)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(text, fontFamily = mulishFontFamily)
+
+    OutlinedButton(
+        onClick = { /*TODO*/ },
+        border = BorderStroke(0.dp, Color.Transparent),
+
+
+    ) {
+        Row(modifier = Modifier
+            .padding(top = 5.dp)
+            .padding(bottom = 5.dp)
+            .padding(start = 8.dp)
+            .padding(end = 8.dp)
+
+            ,verticalAlignment = Alignment.CenterVertically) {
+            Image(
+                painter = iconPainter,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(text, fontFamily = mulishFontFamily, color=Color.Black)
+        }
     }
+
 }
 
 @Composable
