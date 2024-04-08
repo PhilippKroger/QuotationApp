@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -152,11 +153,12 @@ fun QuotationScreen(navController: NavController) {
 
     val interestList = remember {
         listOf(
-            Interest(1, "Интерес 1"),
-            Interest(2, "Интерес 2"),
-            Interest(3, "Интерес 3"),
-            Interest(4, "Интерес 4"),
-            Interest(5, "Интерес 5")
+            Interest(0, "Рекомендации"),
+            Interest(1, "Любовь"),
+            Interest(2, "Бизнес"),
+            Interest(3, "Жизнь"),
+            Interest(4, "Музыка"),
+            Interest(5, "IT")
         )
     }
 
@@ -205,14 +207,17 @@ fun InterestListSearch(interestList: List<Interest>) {
     ) {
 
         LazyRow {
-            items(interestList) { interest ->
+
+            itemsIndexed(interestList) { index, interest ->
+                val textColor = if (index == 0) Color(0xFF283C63) else Color(0xFFA7AAAE) // Изменение цвета текста для первого элемента
+                val borderColor = if (index == 0) Color(0xFF283C63) else Color(0xFFA7AAAE)
                 OutlinedButton(
                     onClick = { /* Обработка нажатия */ },
                     modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp),
-                    border = BorderStroke(1.5.dp, Color(0xFF283C63)),
+                    border = BorderStroke(1.5.dp,borderColor),
 
                 ) {
-                    Text(text = interest.name, color = Color(0xFF283C63), fontFamily = mulishFontFamily)
+                    Text(text = interest.name, color = textColor, fontFamily = mulishFontFamily)
                     // , color = Color(0xFF283C63), fontFamily = mulishFontFamily
                 }
             }
@@ -258,6 +263,8 @@ fun postListOfQuotations(posts: List<Quote>) {
                             )
                             Spacer(modifier = Modifier.weight(0.5f))
 
+
+
                             val expanded = remember { mutableStateOf(false) }
 
                             Box(
@@ -268,28 +275,26 @@ fun postListOfQuotations(posts: List<Quote>) {
                                         painter = painterResource(id = R.drawable.param_icon),
                                         contentDescription = "",
                                         modifier = Modifier
-                                            .size(40.dp) // Устанавливаем размер изображения
+                                            .size(40.dp)
                                             .padding(end = 0.dp)
                                             .padding(bottom = 22.dp)
                                     )
                                 }
 
                                 DropdownMenu(modifier = Modifier
-
                                     .background(Color.White)
-                                    .clip(RoundedCornerShape(2.dp))
-                                    ,
+                                    .clip(RoundedCornerShape(2.dp)),
                                     expanded = expanded.value,
                                     onDismissRequest = { expanded.value = false },
                                 ) {
-
                                     MenuItemContent(painterResource(id = R.drawable.copy_icon), "Копировать")
                                     MenuItemContent(painterResource(id = R.drawable.dublicate_icon), "Дубликат")
                                     MenuItemContent(painterResource(id = R.drawable.warning_icon), "Пожаловаться")
                                 }
-
                             }
                         }
+
+
 
                         Text(modifier = Modifier
                             .padding(start = 0.dp)
@@ -429,4 +434,9 @@ fun MenuItemContent(iconPainter: Painter, text: String) {
         Spacer(modifier = Modifier.width(8.dp))
         Text(text, fontFamily = mulishFontFamily)
     }
+}
+
+@Composable
+fun AdvertisingPost() {
+
 }
