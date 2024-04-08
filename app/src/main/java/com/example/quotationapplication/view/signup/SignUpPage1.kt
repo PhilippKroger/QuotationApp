@@ -93,7 +93,8 @@ fun EmailTextField1(
         value = emailValue,
         onValueChange = onEmailValueChange,
         label = { Text(stringResource(R.string.email), fontFamily = mulishFontFamily) },
-        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email)
+        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
+
     )
 }
 

@@ -40,7 +40,7 @@ fun Header(title1: String, title2: String) {
 
 
             Text(modifier = Modifier
-                .padding(start=10.dp),
+                .padding(end=30.dp),
                 text = stringResource(R.string.quotationapp),
                 color = Color(0xFF283C63),
                 fontSize = 20.sp,

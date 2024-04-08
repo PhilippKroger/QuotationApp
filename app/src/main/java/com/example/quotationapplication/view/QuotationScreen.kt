@@ -23,12 +23,14 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -381,6 +383,7 @@ fun postListOfQuotations(posts: List<Quote>) {
 
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchBar(
     searchQuery: String,
@@ -413,7 +416,11 @@ fun SearchBar(
             .height(50.dp)
             ,
         shape = RoundedCornerShape(8.dp), // Adjust the corner size to match the design
-
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            unfocusedBorderColor = Color.Transparent, // Убирает рамку, когда поле не в фокусе
+            focusedBorderColor = Color.Transparent, // Убирает рамку, когда поле в фокусе
+            disabledBorderColor = Color.Transparent // Убирает рамку, когда поле не активно
+        )
     )
 }
 
