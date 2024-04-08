@@ -5,7 +5,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -21,9 +20,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -37,7 +35,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -46,7 +46,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quotationapplication.R
-import com.example.quotationapplication.core.presentation.signup.InterestList
 import com.example.quotationapplication.model.Author
 import com.example.quotationapplication.model.Category
 import com.example.quotationapplication.model.Interest
@@ -115,6 +114,7 @@ fun QuotationScreen(navController: NavController) {
 
                         )
                     }
+
 
 
                 }
@@ -257,10 +257,13 @@ fun postListOfQuotations(posts: List<Quote>) {
                                 fontFamily = mulishFontFamily
                             )
                             Spacer(modifier = Modifier.weight(0.5f))
+
+                            val expanded = remember { mutableStateOf(false) }
+
                             Box(
                                 modifier = Modifier.padding(end = 30.dp),
                             ) {
-                                IconButton(onClick = { /*TODO*/ }) {
+                                IconButton(onClick = { expanded.value = true }) {
                                     Image(
                                         painter = painterResource(id = R.drawable.param_icon),
                                         contentDescription = "",
@@ -269,6 +272,20 @@ fun postListOfQuotations(posts: List<Quote>) {
                                             .padding(end = 0.dp)
                                             .padding(bottom = 22.dp)
                                     )
+                                }
+
+                                DropdownMenu(modifier = Modifier
+
+                                    .background(Color.White)
+                                    .clip(RoundedCornerShape(2.dp))
+                                    ,
+                                    expanded = expanded.value,
+                                    onDismissRequest = { expanded.value = false },
+                                ) {
+
+                                    MenuItemContent(painterResource(id = R.drawable.copy_icon), "Копировать")
+                                    MenuItemContent(painterResource(id = R.drawable.dublicate_icon), "Дубликат")
+                                    MenuItemContent(painterResource(id = R.drawable.warning_icon), "Пожаловаться")
                                 }
 
                             }
@@ -395,3 +412,21 @@ fun SearchBar(
     )
 }
 
+@Composable
+fun MenuItemContent(iconPainter: Painter, text: String) {
+    Row(modifier = Modifier
+        .padding(top = 5.dp)
+        .padding(bottom = 5.dp)
+        .padding(start = 8.dp)
+        .padding(end = 8.dp)
+
+        ,verticalAlignment = Alignment.CenterVertically) {
+        Image(
+            painter = iconPainter,
+            contentDescription = null,
+            modifier = Modifier.size(18.dp)
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text, fontFamily = mulishFontFamily)
+    }
+}
